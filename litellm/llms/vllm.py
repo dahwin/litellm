@@ -160,6 +160,9 @@ def batch_completions(
     else:
         for message in messages:
             prompt = prompt_factory(model=model, messages=message)
+
+            print(prompt)
+            print('prompt_factory')
             prompts.append(prompt)
     
     if llm:
