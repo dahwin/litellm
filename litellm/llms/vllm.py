@@ -23,7 +23,8 @@ def validate_environment(model: str):
     try: 
         from vllm import LLM, SamplingParams # type: ignore
         if llm is None:
-            llm = LLM(model=model)
+            llm = LLM(model=model,dtype='float16',
+          trust_remote_code=True,tensor_parallel_size=2,worker_use_ray=2)
         return llm, SamplingParams
     except Exception as e:
         raise VLLMError(status_code=0, message=str(e))
