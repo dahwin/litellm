@@ -68,6 +68,7 @@ def completion(
     )
 
     if llm:
+        print(prompt)
         outputs = llm.generate(prompt, sampling_params)
     else:
         raise VLLMError(status_code=0, message="Need to pass in a model name to initialize vllm")
@@ -160,6 +161,7 @@ def batch_completions(
             prompts.append(prompt)
     
     if llm:
+        print(prompts)
         outputs = llm.generate(prompts, sampling_params)
     else:
         raise VLLMError(status_code=0, message="Need to pass in a model name to initialize vllm")
