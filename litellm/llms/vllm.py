@@ -153,6 +153,7 @@ def batch_completions(
                 final_prompt_value=model_prompt_details["final_prompt_value"], 
                 messages=message
             )
+            print(prompt)
             prompts.append(prompt)
     else:
         for message in messages:
